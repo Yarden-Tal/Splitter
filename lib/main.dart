@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splitter/config/colors.dart';
 import 'package:splitter/widgets/bill_section.dart';
+import 'package:splitter/widgets/people_section.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,13 +66,13 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            BillSection()
+            BillSection(),
             // Tip radio section
-            // People input sectiona
+            PeopleSection(),
             // Results section
           ],
         ),
