@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:splitter/config/colors.dart';
+import 'package:splitter/widgets/bill_section.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Splitter',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Spli\ntter'),
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: (SplitterColors.greyishCyan)),
+          useMaterial3: true,
+          fontFamily: ""),
+      home: const MyHomePage(title: 'SPLI\nTTER'),
     );
   }
 }
@@ -31,12 +34,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int bill = 0;
+  int chosenTipPercentage = 0;
+  int numOfPeople = 0;
+  int tipPerPerson = 0;
+  int totalPerPerson = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  List<int> tipOptions = [5, 10, 15, 25, 50];
+
+  // int calcTotalPerPerson() {
+  //   return
+  // }
+
+  // int calcTipPerPerson() {
+  //   return
+  // }
+
+  void resetAll() {
+    bill = 0;
+    chosenTipPercentage = 0;
+    numOfPeople = 0;
+    tipPerPerson = 0;
+    totalPerPerson = 0;
   }
 
   @override
@@ -48,22 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            BillSection()
+            // Tip radio section
+            // People input sectiona
+            // Results section
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
